@@ -1,0 +1,51 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ibm.cn.mapper.UserMapper">
+	
+	<insert id="addUser" parameterType="com.ibm.cn.model.User">
+		INSERT INTO user(username,name,passwd,email,uStatus,identity,signInDate) VALUES (#{username},#{name},#{passwd},#{email},#{uStatus},#{identity},#{signInDate})
+	</insert>
+	
+	<delete id="deleteUserById" parameterType="int">
+		DELETE FROM user WHERE id=#{id}
+	</delete>
+	
+	<update id="updateUserById"
+		parameterType="com.ibm.cn.model.User">
+		UPDATE user SET name=#{name},email=#{email},passwd=#{passwd}
+		WHERE username=#{username}
+	</update>
+	
+	<update id="updateUserStatus"
+		parameterType="com.ibm.cn.model.User">
+		UPDATE user SET uStatus=#{uStatus} WHERE username=#{username}
+	</update>
+	
+	<update id="updateUserIdentity"
+		parameterType="com.ibm.cn.model.User">
+		UPDATE user SET identity=#{identity} WHERE username=#{username}
+	</update>
+    
+	<select id="getUser" parameterType="com.ibm.cn.model.User"
+		resultType="com.ibm.cn.model.User">
+		SELECT * FROM user WHERE username like concat('%',#{username},'%') and name like concat('%',#{name},'%') order by username
+	</select>
+	
+	<select id="getUserAdmin" parameterType="com.ibm.cn.model.User"
+		resultType="com.ibm.cn.model.User">
+		SELECT * FROM user WHERE username like concat('%',#{username},'%') and name like concat('%',#{name},'%')
+	</select>
+	
+	<select id="getAllUsers" resultType="com.ibm.cn.model.User">
+		SELECT * FROM user
+	</select>
+	
+	<select id="getAllUsernames" resultType="com.ibm.cn.model.User">
+		SELECT username FROM user where identity=#{identity}
+	</select>
+
+	<select id="getIssues" resultType="com.ibm.cn.model.Issue">
+		select * from issuelist 
+	</select>
+
+
+</mapper>
