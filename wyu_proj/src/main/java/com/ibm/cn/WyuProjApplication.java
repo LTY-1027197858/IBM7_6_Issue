@@ -9,15 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class WyuProjApplication {
-
-//	@PostConstruct
-//    void started() {
-//     TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-//    }
-	
 	public static void main(String[] args) {
-		SpringApplication.run(WyuProjApplication.class, args);
-		
+		SpringApplication.run(WyuProjApplication.class, args);	
 	}
 
 }

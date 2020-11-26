@@ -27,8 +27,8 @@ public class IssueController {
 	@CrossOrigin
 	@PostMapping("/CreateIssue")
 	public int addIssue(@RequestBody Issue issue) {
-		//默认设置issue创建后状态为 待修改
-		issue.setStatus("待修改");
+		//默认设置issue创建后状态为 待解决
+		issue.setStatus("待解决");
 		//获取系统时间
 		issue.setCreateDate(new Date());
 		//成功创建返回code：1 失败返回code：0
@@ -96,12 +96,18 @@ public class IssueController {
 	@CrossOrigin
 	@PostMapping("/QueryIssue")
 	public List<Issue> QueryIssue(@RequestBody Issue issue){
+		List<Issue> listNum= issueService.QueryIssue(issue);
+		
 		//数据查询分页，PageNum--页数	PageSize==20
 		PageHelper.startPage(issue.getPageNum(),20);
 		//调用QueryIssue接口查询issue数据装入list中
 		List<Issue> list= issueService.QueryIssue(issue);
 //		//判断当前用户的修改权限
 //		//遍list表
+		for(Issue i:list) {
+			
+				i.setTotal(listNum.size());
+		}
 //		for(Issue i:list) {
 //			//判断修改人
 //			if(i.getAlterId().equals(issue.getUserId())) {

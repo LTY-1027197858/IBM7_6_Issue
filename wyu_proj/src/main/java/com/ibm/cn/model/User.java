@@ -20,12 +20,33 @@ public class User {
     private int CreateINum;		//用户创建issue数
     private int ReceiveINum;	//用户收到issue数
     private int AlterINum;		//用户修改issue数
-    private int  IPerCom;		//用户完成率
+    private String  IPerCom;		//用户完成率
     
     //分页的参数
   	private int pageNum;		//分页的页数
   	private int pageSize;		//分页的条数
   	
+ // 验证码
+    private String code;
+    
+  //总条数
+  	private int total;
+  	
+  	
+	
+	
+	public int getTotal() {
+		return total;
+	}
+	public void setTotal(int total) {
+		this.total = total;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
 	public int getPageNum() {
 		return pageNum;
 	}
@@ -58,10 +79,10 @@ public class User {
 	}
 	
 	
-	public int getIPerCom() {
+	public String getIPerCom() {
 		return IPerCom;
 	}
-	public void setIPerCom(int iPerCom) {
+	public void setIPerCom(String iPerCom) {
 		IPerCom = iPerCom;
 	}
 	public Integer getId() {

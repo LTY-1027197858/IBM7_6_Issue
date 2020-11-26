@@ -39,7 +39,7 @@
    
     <select id="QueryIssue" parameterType="com.ibm.cn.model.Issue"
 		resultType="com.ibm.cn.model.Issue">
-		SELECT * FROM issuelist WHERE assignId like concat('%',#{assignId},'%') and  status like concat('%',#{status},'%') and alterId like concat('%',#{alterId},'%')
+		SELECT * FROM issuelist WHERE  assignId like concat('%',#{assignId},'%') and  status like concat('%',#{status},'%') and alterId like concat('%',#{alterId},'%')
 		<if test="createStartTime!=null ">  and createDate<![CDATA[>=]]>  #{createStartTime}</if> 
         <if test="createEndTime!=null ">  and createDate<![CDATA[<=]]>  #{createEndTime}</if> 
         <if test="planStartTime!=null ">  and planDate<![CDATA[>=]]>  #{planStartTime}</if> 
