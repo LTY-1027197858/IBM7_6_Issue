@@ -20,6 +20,11 @@
 		UPDATE user SET uStatus=#{uStatus} WHERE username=#{username}
 	</update>
 	
+	<update id="updateUserLogStatus"
+		parameterType="com.ibm.cn.model.User">
+		UPDATE user SET logStatus=#{logStatus} WHERE username=#{username}
+	</update>
+	
 	<update id="updateUserIdentity"
 		parameterType="com.ibm.cn.model.User">
 		UPDATE user SET identity=#{identity} WHERE username=#{username}
@@ -32,7 +37,7 @@
 	
 	<select id="getUserAdmin" parameterType="com.ibm.cn.model.User"
 		resultType="com.ibm.cn.model.User">
-		SELECT * FROM user WHERE username like concat('%',#{username},'%') and name like concat('%',#{name},'%')
+		SELECT * FROM user WHERE username like concat('%',#{username},'%') and name like concat('%',#{name},'%') 
 	</select>
 	
 	<select id="getAllUsers" resultType="com.ibm.cn.model.User">

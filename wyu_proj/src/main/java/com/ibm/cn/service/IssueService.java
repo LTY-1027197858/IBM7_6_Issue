@@ -42,13 +42,6 @@ public class IssueService {
 	public List<Issue> getAllIssues() {
 		return issueMapper.getAllIssues();
 	}
-
-//	public List<Issue> queryIssuesBySql(int currPage, int pageSize) {
-//		Map<String, Object> data = new HashMap();
-//		data.put("currIndex", (currPage - 1) * pageSize);
-//		data.put("pageSize", pageSize);
-//		return issueMapper.queryIssuesBySql(data);
-//	}
 	//模糊查询issue接口
 	public List<Issue> QueryIssue(Issue issue){
 		return issueMapper.QueryIssue(issue);
@@ -57,5 +50,9 @@ public class IssueService {
 	public List<Issue> QueryIssueByMananger(Issue issue){
 		return issueMapper.QueryIssueByMananger(issue);
 	}
+	//邮件提醒接口
+	public List<User> getAllUserEmail() {
+		  return issueMapper.getAllUserEmail();
+		 }
 	
 }

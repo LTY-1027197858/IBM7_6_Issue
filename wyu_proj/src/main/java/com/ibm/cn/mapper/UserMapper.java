@@ -27,6 +27,8 @@ public interface UserMapper {
 	public List<Issue> getIssues();
 	//更新用户账号状态接口
 	public int updateUserStatus(User user);
+	//用户账号下线
+	public int updateUserLogStatus(User user);
 	//更新用户账号身份接口
 	public int updateUserIdentity(User user);
 }

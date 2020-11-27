@@ -2,6 +2,8 @@ package com.ibm.cn.model;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 /*
  * id, name, email, uStatus, passwd, signInDate, identity, power, issueId
  * */
@@ -12,9 +14,10 @@ public class User {
 	private String email;		//用户邮箱信息
 	private String uStatus;		//用户账号状态
 	private String passwd;		//用户密码
+	@JsonFormat(pattern = "yyyy-MM-dd",timezone="GMT+8")
 	private Date   signInDate;	//用户账号注册时间
 	private String identity;	//用户身份
-	private String  power;
+	private String  logStatus;  //登录状态
 	private Integer issueId;
 	//报表变量
     private int CreateINum;		//用户创建issue数
@@ -79,6 +82,12 @@ public class User {
 	}
 	
 	
+	public String getLogStatus() {
+		return logStatus;
+	}
+	public void setLogStatus(String logStatus) {
+		this.logStatus = logStatus;
+	}
 	public String getIPerCom() {
 		return IPerCom;
 	}
@@ -127,12 +136,7 @@ public class User {
 	public void setIdentity(String identity) {
 		this.identity = identity;
 	}
-	public String getPower() {
-		return power;
-	}
-	public void setPower(String power) {
-		this.power = power;
-	}
+	
 	public Integer getIssueId() {
 		return issueId;
 	}

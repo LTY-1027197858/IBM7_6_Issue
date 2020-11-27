@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.ibm.cn.model.Issue;
+import com.ibm.cn.model.User;
 @Mapper
 public interface IssueMapper {
 	//创建新issue接口
@@ -26,6 +27,7 @@ public interface IssueMapper {
 	public List<Issue> QueryIssueByMananger(Issue issue);
 	//模糊查询issue接口
 	public List<Issue> QueryIssue(Issue issue);
-	
+	//邮件提醒功能接口
+	public List<User> getAllUserEmail();
 	//public List<Issue> queryIssuesBySql(Map<String, Object> data);
 }

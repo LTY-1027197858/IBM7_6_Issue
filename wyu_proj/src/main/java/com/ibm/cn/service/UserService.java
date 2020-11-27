@@ -54,6 +54,16 @@ public class UserService {
 	public int updateUserStatus(User user) {
 		return userMapper.updateUserStatus(user);
 	}
+	//用户账号下线接口
+		public int updateUserLogStatus(User user) {
+			if(user.getLogStatus().equals("下线")) {
+				user.setLogStatus("登录");
+			}
+			else {
+				user.setLogStatus("下线");
+			}
+			return userMapper.updateUserLogStatus(user);
+		}
 	//更新用户账号身份接口
 	public int updateUserIdentity(User user) {
 		return userMapper.updateUserIdentity(user);
